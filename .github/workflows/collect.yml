@@ -10,13 +10,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build
+    conatiner: python:3.11
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: Collect Data
-        uses: szabgab/forem-author-stats@v1
+      - name: Checkout collector
+        uses: actions/checkout@v3
         with:
-          username: szabgab
+          repository: 'szabgab/forem-author-stats'
+          path: forem-author-stats
+          ref: 'v1'
+
+      - name: install dependencies
+        run: |
+          pip install -r forem-author-stats/requirements.txt
+
+      - name: Collect Data
+        run: |
+          python forem-author-stats/collect.py --username szabgab
 
       - name: Commit new data
         run: |
