@@ -1,0 +1,21 @@
+name: Collect
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '42 1 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Collect Data
+        uses: szabgab/forem-author-stats@v1
+        with:
+          username: szabgab
+
+
