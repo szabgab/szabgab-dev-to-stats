@@ -28,7 +28,7 @@ jobs:
 
       - name: Collect Data
         run: |
-          python forem-author-stats/collect.py --username szabgab
+          python forem-author-stats/collect.py --username szabgab --data data
 
       - name: Commit new data
         run: |
