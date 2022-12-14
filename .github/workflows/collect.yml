@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: '42 1 * * *'
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,3 +34,15 @@ jobs:
       - name: Collect Data
         run: |
           python forem-author-stats/collect.py --username szabgab
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: '_site'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
