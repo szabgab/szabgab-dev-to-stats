@@ -29,14 +29,3 @@ jobs:
       - name: Collect Data
         run: |
           python forem-author-stats/collect.py --username szabgab
-
-#      - name: Commit new data
-#        run: |
-#            GIT_STATUS=$(git status --porcelain)
-#            echo $GIT_STATUS
-#            git config --global user.name 'Gabor Szabo'
-#            git config --global user.email 'gabor@szabgab.com'
-#            git add data/
-#            if [ "$GIT_STATUS" != "" ]; then git commit -m "Update collected data"; fi
-#            if [ "$GIT_STATUS" != "" ]; then git push; fi
-
