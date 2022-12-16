@@ -35,8 +35,6 @@ jobs:
         env:
           FOREM_API_KEY: ${{ secrets.FOREM_API_KEY }}
         run: |
-          mkdir -p _site
-          echo devto.szabgab.com > _site/CNAME
           python forem-author-stats/collect.py --host dev.to --collect --commit --html
 
       - name: Setup Pages
