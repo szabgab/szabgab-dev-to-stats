@@ -32,6 +32,8 @@ jobs:
           pip install -r forem-author-stats/requirements.txt
 
       - name: Collect Data
+        env:
+          FOREM_API_KEY: ${{ secrets.FOREM_API_KEY }}
         run: |
           python forem-author-stats/collect.py --host dev.to --collect --commit --html
 
