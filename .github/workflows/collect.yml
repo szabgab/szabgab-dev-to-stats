@@ -25,7 +25,7 @@ jobs:
         with:
           repository: 'szabgab/forem-author-stats'
           path: forem-author-stats
-          ref: 'v1'
+          ref: 'v2'
 
       - name: install dependencies
         run: |
@@ -33,7 +33,7 @@ jobs:
 
       - name: Collect Data
         run: |
-          python forem-author-stats/collect.py --username szabgab --host dev.to --collect --commit --html
+          python forem-author-stats/collect.py --host dev.to --collect --commit --html
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
