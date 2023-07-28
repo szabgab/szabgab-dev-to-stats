@@ -3,8 +3,8 @@ name: Collect
 on:
   push:
   workflow_dispatch:
-  schedule:
-    - cron: '42 1 * * *'
+    #  schedule:
+    #    - cron: '42 1 * * *'
 
 permissions:
   contents: write
